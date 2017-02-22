@@ -2,6 +2,10 @@
     "name": "angular-polymer-sample",
     "version": "0.0.0",
     "license": "MIT",
+    "author": {
+        "name": "Wassim Chegham",
+        "email": "github@wassimchegham.com"
+    },
     "scripts": {
         "ng": "ng",
         "start": "ng serve",

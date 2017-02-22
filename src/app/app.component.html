@@ -1,3 +1,62 @@
 <h1>
-  {{title}}
+    {{title}}
 </h1>
+
+<p>
+    <paper-button (click)="toast.open()">Open Toast</paper-button>
+    <paper-button raised>Raised button</paper-button>
+    <paper-button noink>No ripple effect</paper-button>
+    <paper-button toggles>Toggle-able button</paper-button>
+</p>
+
+<p>
+    <paper-card heading="Card Title">
+        <div class="card-content">Some content</div>
+        <div class="card-actions">
+            <paper-button>Some action</paper-button>
+        </div>
+    </paper-card>
+</p>
+
+<p>
+    <paper-checkbox>label</paper-checkbox>
+</p>
+
+<p>
+    <paper-fab icon="add"></paper-fab>
+    <paper-fab mini icon="favorite"></paper-fab>
+</p>
+
+<p>
+    <paper-icon-button icon="menu"></paper-icon-button>
+</p>
+<p>
+    <paper-input label="total">
+        <div prefix>$</div>
+        <paper-icon-button suffix icon="clear"></paper-icon-button>
+    </paper-input>
+</p>
+<p>
+    <paper-listbox>
+        <paper-item>Item 1</paper-item>
+        <paper-item>Item 2</paper-item>
+    </paper-listbox>
+</p>
+<p>
+    <paper-menu>
+        <paper-item>Item 1</paper-item>
+        <paper-item>Item 2</paper-item>
+    </paper-menu>
+</p>
+<p>
+    <paper-slider min="10" max="200" value="110"></paper-slider>
+</p>
+<p>
+    <paper-spinner active></paper-spinner>
+</p>
+<p>
+    <paper-toast #toast text="Hello You" duration="3"></paper-toast>
+</p>
+<p>
+    <paper-toggle-button></paper-toggle-button>
+</p>
