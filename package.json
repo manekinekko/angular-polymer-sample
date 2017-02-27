@@ -12,7 +12,8 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "ship": "ng build --base-href /angular-polymer-sample/ && cd dist/ && git add . && git commit -m 'docs: publishing github pages' && git push"
+        "ship": "ng build --base-href /angular-polymer-sample/ && npm run ship:git",
+        "ship:git": "cd dist/ && git add . && git commit -m 'docs: publish github pages' && git push"
     },
     "private": true,
     "dependencies": {
