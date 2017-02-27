@@ -1,0 +1,185 @@
+<div class="flex-container">
+    <section>
+        <h2>paper-button</h2>
+        <div>
+            <p>
+                <paper-button (click)="paperButtonClick('simple', $event)" (transitionend)="paperButtonTransitionend($event)" class="fancy">Open Toast</paper-button>
+                <paper-button (click)="paperButtonClick('raised', $event)" (transitionend)="paperButtonTransitionend($event)" [raised]="true">Raised button</paper-button>
+                <paper-button (click)="paperButtonClick('noink', $event)" noink class="fancy">No ripple effect</paper-button>
+                <paper-button (click)="paperButtonClick('toggles', $event)" (transitionend)="paperButtonTransitionend($event)" toggles>Toggle-able button</paper-button>
+                <paper-button (click)="paperButtonClick('disbaled', $event)" disabled>disabled (no event)</paper-button>
+                <a href="https://www.polymer-project.org/" tabindex="-1" target="__blank">
+                    <paper-button raised>Polymer Project</paper-button>
+                </a>
+                <paper-button (click)="paperButtonClick('custom-1', $event)" (transitionend)="paperButtonTransitionend($event)">
+                    <iron-icon icon="check"></iron-icon>link
+                </paper-button>
+                <paper-button (click)="paperButtonClick('custom-2', $event)" (transitionend)="paperButtonTransitionend($event)" raised>
+                    <iron-icon icon="file-download"></iron-icon>raised
+                </paper-button>
+                <paper-button (click)="paperButtonClick('custom-3', $event)" (transitionend)="paperButtonTransitionend($event)" toggles raised>
+                    <iron-icon icon="favorite"></iron-icon>toggles
+                </paper-button>
+                <paper-button (click)="paperButtonClick('custom-4', $event)" [disabled]="0+0">
+                    <iron-icon icon="block"></iron-icon>disabled from angular
+                </paper-button>
+                <paper-button #paperButton2Ref raised>pressed:{{ paperButton2Ref.pressed }}</paper-button>
+                <paper-button #paperButton3Ref>pointerDown:{{ paperButton3Ref.pointerDown }}</paper-button>
+                <paper-button #paperButton1Ref noink>focused:{{ paperButton1Ref.focused }}</paper-button>
+            </p>
+            <pre>{{ debug.paperButton | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-card</h2>
+        <div>
+            <p>
+                <paper-card #paperCardRef heading="My Cut Cat" [elevation]="paperCardElevation" [animatedShadow]="true" [fadeImage]="true" [preloadImage]="true" [image]="paperCardImageUrl">
+                    <div class="card-content">Cute cat image set from Angular</div>
+                    <div class="card-actions">
+                        <paper-button (click)="paperCardClick('meow')">Meow</paper-button>
+                        <paper-button noink raised (click)="paperCardToggleElevation()">Toggle Elevation</paper-button>
+                    </div>
+                </paper-card>
+            </p>
+            <pre>animated:{{ paperCardRef.animated | json }} (Bug: click on button to see value)</pre>
+            <pre>{{ debug.paperCard | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-fab</h2>
+        <div>
+            <p style="display: flex">
+                <paper-fab #paperFab2Ref (active-changed)="paperFabActive($event)" (click)="paperFabClick('home', paperFab2Ref.active)" toggles label="🌶" style="background: white;"></paper-fab>
+                <paper-fab #paperFab1Ref (click)="paperFabClick('add', paperFab2Ref.active)" icon="add"></paper-fab>
+                <paper-fab #paperFab3Ref (click)="paperFabClick('favorite', paperFab2Ref.active)" mini icon="favorite"></paper-fab>
+                <paper-fab #paperFab4Ref (click)="paperFabClick('close', paperFab2Ref.active)" mini icon="home"></paper-fab>
+            </p>
+            <pre>{{ debug.paperFab | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-icon-button</h2>
+        <div>
+            <p>
+                <paper-icon-button icon="home"></paper-icon-button>
+                <paper-icon-button icon="menu"></paper-icon-button>
+                <paper-icon-button icon="star"></paper-icon-button>
+                <paper-icon-button icon="favorite" style="color: red;"></paper-icon-button>
+                <!--not working-->
+                <button is="paper-icon-button">
+                    <iron-icon icon="reply"></iron-icon>
+                </button>
+                <a href="https://www.polymer-project.org" tabindex="-1" target="__blank">
+                    <paper-icon-button icon="polymer"></paper-icon-button>
+                </a>
+            </p>
+            <pre>{{ debug.paperIcon | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-checkbox</h2>
+        <div>
+            <p>
+                <paper-checkbox #paperCheckbox1Ref (change)="paperCheckboxChange($event, paperCheckbox1Ref.checked)">change event</paper-checkbox>
+                <paper-checkbox #paperCheckbox2Ref (change)="paperCheckboxChange($event, paperCheckbox2Ref.checked)" [checked]="paperCheckbox1Ref.checked">bound to [checked]</paper-checkbox>
+                <br>
+                <br>
+                <paper-checkbox #paperCheckbox3Ref (change)="paperCheckboxChange($event, paperCheckbox3Ref.checked)" (iron-change)="paperCheckboxIronChange($event)">iron change event (?)</paper-checkbox>
+                <paper-checkbox #paperCheckbox4Ref (change)="paperCheckboxChange($event, paperCheckbox4Ref.checked)" [required]="true">required=true</paper-checkbox>
+                <paper-checkbox #paperCheckbox5Ref (change)="paperCheckboxChange($event, paperCheckbox5Ref.checked)" [active]="true">active=true</paper-checkbox>
+                <br>
+                <br>
+                <paper-checkbox #paperCheckbox6Ref (change)="paperCheckboxChange($event, paperCheckbox6Ref.checked)" noink>noink</paper-checkbox>
+                <paper-checkbox #paperCheckbox7Ref (change)="paperCheckboxChange($event, paperCheckbox7Ref.checked)" [disabled]="paperCheckbox6Ref.checked">Disabled</paper-checkbox>
+            </p>
+            <pre>{{ debug.paperCheckbox | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-input</h2>
+        <div>
+            <p>
+                <paper-button (click)="paperInputValue = 'Hello Polymer ❤️'">reset from angular</paper-button>
+                <paper-input [charCounter]="true" label="username" [value]="paperInputValue" (focused-changed)="paperInputFocus($event)" (value-changed)="paperInputValue = $event.target.value; paperInputValueChanged($event)">
+                    <iron-icon icon="mail" prefix></iron-icon>
+                    <div suffix>@gmail.com</div>
+                    <paper-icon-button suffix icon="clear" (click)="paperInputValue = ''"></paper-icon-button>
+                </paper-input>
+            </p>
+            <pre>{{ debug.paperInput | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-listbox</h2>
+        <div>
+            <p>
+                <paper-listbox>
+                    <paper-item>Item 1</paper-item>
+                    <paper-item>Item 2</paper-item>
+                </paper-listbox>
+            </p>
+            <pre>{{ debug.paperListbox | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-menu</h2>
+        <div>
+            <p>
+                <paper-menu>
+                    <paper-item>Item 1</paper-item>
+                    <paper-item>Item 2</paper-item>
+                </paper-menu>
+            </p>
+            <pre>{{ debug.paperMenu | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-slider</h2>
+        <div>
+            <p>
+                <paper-slider min="10" max="200" value="110"></paper-slider>
+            </p>
+            <pre>{{ debug.paperSlider | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-spinner</h2>
+        <div>
+            <p>
+                <paper-spinner active></paper-spinner>
+            </p>
+            <pre>{{ debug.paperSpinner | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-toast</h2>
+        <div>
+            <p>
+                <paper-toast #toast text="Hello You" duration="3"></paper-toast>
+            </p>
+            <pre>{{ debug.paperToast | json }}</pre>
+        </div>
+    </section>
+
+    <section>
+        <h2>paper-toggle-button</h2>
+        <div>
+            <p>
+                <paper-toggle-button></paper-toggle-button>
+            </p>
+            <pre>{{ debug.paperToggleButton | json }}</pre>
+        </div>
+    </section>
+
+</div>

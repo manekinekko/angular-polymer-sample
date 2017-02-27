@@ -1,27 +1,31 @@
 # AngularPolymerSample
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.32.3.
+## Notes
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### general
 
-## Code scaffolding
+1. respond to props notifications using angular event binding `(prop-changed)="callback()"`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+### `paper-button`
 
-## Build
+1. can't access to prototype's methods such as `addOwnKeyBinding()`
+2. css custom props are not working
+3. getting some elements props doesn't update (zone??):
+```
+  <paper-button #paperButton2Ref raised>pressed:{{ paperButton2Ref.pressed }}</paper-button>
+  <paper-button #paperButton3Ref>pointerDown:{{ paperButton3Ref.pointerDown }}</paper-button>
+  <paper-button #paperButton1Ref noink>focused:{{ paperButton1Ref.focused }}</paper-button>
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+### `paper-card`
 
-## Running unit tests
+1. card props must be bound to from angular (ie. [animatedShadow]="true")
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### `paper-fab`
 
-## Running end-to-end tests
+### `paper-icon-button`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. registering an element with `is` is not working
+```
+<button is="paper-icon-button-light"></button>
+```

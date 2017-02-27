@@ -1,0 +1,39 @@
+section {
+    border: 1px solid #F33170;
+    margin: 10px;
+}
+
+section h2 {
+    background: #F33170;
+    padding: 20px;
+    margin-top: 0px;
+    color: white;
+}
+
+section div {
+    margin: 10px;
+    padding: 10px;
+}
+
+
+/*paper-buttons*/
+
+paper-button {
+    margin: 10px;
+}
+
+paper-button.fancy {
+    background: #2BC3EC;
+    color: yellow;
+    --paper-button-ink-color: var(--paper-pink-a200);
+}
+
+paper-button.fancy:hover {
+    background: #2BC3EC;
+}
+
+paper-button[disabled],
+paper-button[toggles][active] {
+    background: #F33170;
+    color: white;
+}
